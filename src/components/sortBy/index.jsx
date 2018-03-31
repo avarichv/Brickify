@@ -4,29 +4,43 @@ import PropTypes from 'prop-types';
 class SortBy extends React.PureComponent {
     render() {
         const { data, config } = this.props;
-        const { Shader, sortBy } = config;
+        const { Shader, sortBy, direction, ignoreCase } = config;
 
         let sorted = data;
         if(typeof sortBy === 'string') {
-            sorted = data.sort((itemA,itemB) => {
-                const a = itemA[sortBy];
-                const b = itemB[sortBy];
+            sorted = data.sort((a,b) => {
+                const va = a[sortBy];
+                const vb = b[sortBy];
+                const sign = direction === 'desc' ? -1 : 1;
 
-                if(typeof a === 'number' && typeof b === 'number') {
-                    return a > b;
+                if(typeof va === 'number' && typeof vb === 'number') {
+                    return direction === 'desc' ? (vb - va) : (va - vb);
+                }
+
+                if(ignoreCase) {
+                    return `${va}`.toLowerCase().localeCompare(`${vb}`.toLowerCase()) * sign;
                 } else {
-                    return `${a}`.localeCompare(`${b}`);
+                    return `${va}`.localeCompare(`${vb}`) * sign;
                 }
             });
-        } else {
+        }
+
+        if(typeof sortBy === 'function') {
             sorted = data.sort(sortBy);
         }
 
-        return <Shader data={data.sort()} config={config} />
+        return <Shader data={sorted} config={config} />
     }
 }
 
 export default SortBy;
+
+SortBy.defaultValues = {
+    config: {
+        direction: 'asc',
+        ignoreCase: true
+    }
+}
 
 SortBy.propTypes = {
     data: PropTypes.array.isRequired,
@@ -35,6 +49,8 @@ SortBy.propTypes = {
         sortBy: PropTypes.oneOfType([
             PropTypes.string,
             PropTypes.func
-        ]).isRequired
+        ]).isRequired,
+        direction: PropTypes.oneOf(['asc', 'desc']),
+        ignoreCase: PropTypes.bool
     }).isRequired
 }

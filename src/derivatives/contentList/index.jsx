@@ -16,7 +16,7 @@ const Bricks = Brickify([Label, List, Slice, Sort, SortBy, Row, Pagination, Pagi
 
 const ContentList = ({ data, config }) => (
     <Bricks.PagingView data={data} >
-        <Bricks.SortBy sortBy={'random'} matchProps={(d, c, s) => ({data:d, config: { ...c, offset: s.pageIndex * config.bufferSize }})}>
+        <Bricks.SortBy sortBy={'id'} matchProps={(d, c, s) => ({data:d, config: { ...c, offset: s.pageIndex * config.bufferSize }})}>
             <Bricks.Slice offset={inherits('offset')} bufferSize={config.bufferSize}>
                 <Bricks.List getKey={i => i.id}>
                     <Bricks.Row>
