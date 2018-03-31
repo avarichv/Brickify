@@ -9,18 +9,21 @@ import Slice from '../../components/slice';
 import Sort from '../../components/sort';
 import SortBy from '../../components/sortBy';
 import Row from '../../components/row';
+import Cell from '../../components/cell';
 import Pagination from '../../components/pagination';
 import PagingView from '../../components/pagingView';
 
-const Bricks = Brickify([Label, List, Slice, Sort, SortBy, Row, Pagination, PagingView]);
+const Bricks = Brickify([Label, List, Slice, Sort, SortBy, Row, Cell, Pagination, PagingView]);
 
 const ContentList = ({ data, config }) => (
     <Bricks.PagingView data={data} >
-        <Bricks.SortBy sortBy={'id'} matchProps={(d, c, s) => ({data:d, config: { ...c, offset: s.pageIndex * config.bufferSize }})}>
+        <Bricks.SortBy sortBy={'random'} direction={'desc'} matchProps={(d, c, s) => ({data:d, config: { ...c, offset: s.pageIndex * config.bufferSize }})}>
             <Bricks.Slice offset={inherits('offset')} bufferSize={config.bufferSize}>
                 <Bricks.List getKey={i => i.id}>
                     <Bricks.Row>
-                        <Bricks.Label matchProps={(d, c, s) => ({data:`${d}`})}/>
+                        <Bricks.Cell width={'300px'}>
+                            <Bricks.Label matchProps={(d, c, s) => ({data:`${d}`})}/>
+                        </Bricks.Cell>
                     </Bricks.Row>
                 </Bricks.List>
             </Bricks.Slice>
