@@ -2,7 +2,7 @@
 
 ### A reusability solution of react components
 
-### Quick start
+### Quick demo
 
 ```
   npm install
