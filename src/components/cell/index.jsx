@@ -18,7 +18,7 @@ class Cell extends React.PureComponent {
 
 export default Cell;
 
-Cell.defaultValues = {
+Cell.defaultProps = {
     config: {
         width: 'auto'
     }

@@ -35,7 +35,7 @@ class SortBy extends React.PureComponent {
 
 export default SortBy;
 
-SortBy.defaultValues = {
+SortBy.defaultProps = {
     config: {
         direction: 'asc',
         ignoreCase: true

@@ -1,0 +1,11 @@
+.bfy-layout {
+  display: block;
+  min-height: 1em;
+  background-color: yellow; }
+  .bfy-layout_slice {
+    display: inline-block;
+    vertical-align: top;
+    background-color: pink;
+    height: 100%; }
+    .bfy-layout_slice:nth-child(2n) {
+      background-color: aqua; }
