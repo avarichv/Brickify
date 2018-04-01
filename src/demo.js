@@ -31,7 +31,64 @@ export const config = {
     }
 };
 
-export const data = (i => {
+const tree = {
+    id: 'root',
+    items: [
+        { id: 'root/1', items: [
+            { id: 'root/1/1', items: [
+                { id: 'root/1/1/1' },
+                { id: 'root/1/1/2' },
+                { id: 'root/1/1/3' }
+            ] },
+            { id: 'root/1/2', items: [
+                { id: 'root/1/2/1' },
+                { id: 'root/1/2/2' },
+                { id: 'root/1/2/3' }
+            ] },
+            { id: 'root/1/3', items: [
+                { id: 'root/1/3/1' },
+                { id: 'root/1/3/2' },
+                { id: 'root/1/3/3' }
+            ] }
+        ] },
+        { id: 'root/2', items: [
+            { id: 'root/2/1', items: [
+                { id: 'root/2/1/1' },
+                { id: 'root/2/1/2' },
+                { id: 'root/2/1/3' }
+            ] },
+            { id: 'root/2/2', items: [
+                { id: 'root/2/2/1' },
+                { id: 'root/2/2/2' },
+                { id: 'root/2/2/3' }
+            ] },
+            { id: 'root/2/3', items: [
+                { id: 'root/2/3/1' },
+                { id: 'root/2/3/2' },
+                { id: 'root/2/3/3' }
+            ] }
+        ] },
+        { id: 'root/3', items: [
+            { id: 'root/3/1', items: [
+                { id: 'root/3/1/1' },
+                { id: 'root/3/1/2' },
+                { id: 'root/3/1/3' }
+            ] },
+            { id: 'root/3/2', items: [
+                { id: 'root/3/2/1' },
+                { id: 'root/3/2/2' },
+                { id: 'root/3/2/3' }
+            ] },
+            { id: 'root/3/3', items: [
+                { id: 'root/3/3/1' },
+                { id: 'root/3/3/2' },
+                { id: 'root/3/3/3' }
+            ] }
+        ] }
+    ]
+};
+
+const contents = (i => {
     const arr = [];
     for(; i > 0; i--) {
         arr.push({
@@ -43,3 +100,5 @@ export const data = (i => {
     }
     return arr;
 })(300);
+
+export const data = { contents, tree };

@@ -1,7 +1,6 @@
 .bfy-layout {
   display: block;
-  min-height: 1em;
-  background-color: yellow; }
+  min-height: 1em; }
   .bfy-layout_slice {
     display: inline-block;
     vertical-align: top;

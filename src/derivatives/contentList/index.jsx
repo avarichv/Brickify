@@ -16,6 +16,8 @@ import PagingView from '../../components/pagingView';
 
 const Bricks = Brickify([Label, List, Slice, Sort, SortBy, InlineList, Row, Cell, Pagination, PagingView]);
 
+const matchLabel = (d, c, s) => ({data:`${d}`});
+
 const ContentList = ({ data, config }) => (
     <Bricks.PagingView data={data} >
         <Bricks.SortBy
@@ -39,7 +41,7 @@ const ContentList = ({ data, config }) => (
                         ]}
                     >
                         <Bricks.Cell propKey={inherits('field')} width={inherits('width')}>
-                            <Bricks.Label matchProps={(d, c, s) => ({data:`${d}`})}/>
+                            <Bricks.Label matchProps={matchLabel}/>
                         </Bricks.Cell>
                     </Bricks.Row>
                 </Bricks.List>
