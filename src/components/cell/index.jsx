@@ -6,11 +6,11 @@ import './style.css';
 class Cell extends React.PureComponent {
     render() {
         const { data, config } = this.props;
-        const { Shader, width } = config;
+        const { Shader, propKey, width } = config;
 
         return (
-            <div className="bfy-cell" style={{ width }}>
-                <Shader data={data} config={config} />
+            <div className="bfy-cell" style={{ width: width }}>
+                <Shader data={data[propKey]} config={config} />
             </div>
         );
     }
@@ -28,6 +28,7 @@ Cell.propTypes = {
     data: PropTypes.any.isRequired,
     config: PropTypes.shape({
         Shader: PropTypes.func.isRequired,
+        propKey: PropTypes.string.isRequired,
         width: PropTypes.string
     }).isRequired
 }

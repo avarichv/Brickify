@@ -1,2 +1,5 @@
 .bfy-cell {
-  display: inline-block; }
+  display: inline-block;
+  overflow-x: hidden;
+  margin-bottom: -4px;
+}

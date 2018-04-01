@@ -5,7 +5,7 @@ import List from './components/list';
 import Slice from './components/slice';
 import Sort from './components/sort';
 import Pagination from './components/pagination';
-import PagingView from './components/pagination';
+//import PagingView from './components/pagination';
 
 export const config = {
     Shader: [

@@ -5,8 +5,6 @@ class Sort extends React.PureComponent {
     render() {
         const { data, config } = this.props;
         const { Shader } = config;
-        const sorted = data.sort();
-
         return <Shader data={data.sort()} config={config} />
     }
 }

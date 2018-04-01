@@ -45,13 +45,13 @@ function brickify(Comp) {
             config = match.config || {};
         }
 
-        Object.values(config).forEach(prop => {
-            if(prop instanceof InheritedKey) {
+        Object.entries(config).forEach(([k, v]) => {
+            if(v instanceof InheritedKey) {
                 let parent = config._parent_;
                 do {
-                    config[prop.key] = parent[prop.key];
+                    config[k] = parent[v.key];
                     parent = parent._parent_;
-                } while(config[prop.key] === undefined && parent);
+                } while(config[k] === undefined && parent);
             }
         });
 

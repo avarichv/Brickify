@@ -5,7 +5,7 @@ import './App.css';
 import Comp from './derivatives/contentList';
 //import Comp from './components/pagingView';
 
-import { data, config } from './demo';
+import { data, /* config */ } from './demo';
 
 class App extends Component {
   render() {

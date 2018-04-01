@@ -15,7 +15,6 @@ class PagingView extends React.PureComponent {
 
     render() {
         const { data, config } = this.props;
-        const { pageIndex } = this.state;
         const { Shader: [ Content, Control ] } = config;
         
         return (
